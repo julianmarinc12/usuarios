@@ -10,8 +10,21 @@
         <a th:href="@{/}">Regresar</a>
         <br/>
         <form th:action="@{/guardar}" method="post" th:object="${user}">
+            <input type="hidden" name="id" th:field="*{id}">
+            <br/>
             <label for="name">Name:</label>
             <input type="text" name="name" th:field="*{name}" />
+            <br/>
+            <label for="lastname"> last Name:</label>
+            <input type="text" name="lastname" th:field="*{lastname}" />
+            <br/>
+            <label for="email">email:</label>
+            <input type="email" name="email" th:field="*{email}" />
+            <br/>
+            <label for="date">date:</label>
+            <input type="text" name="date" th:field="*{date}" />
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>
         </form>
     </body>
     </html>
