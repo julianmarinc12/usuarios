@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserServices {
 
-    public List<User> geyUser();
+    public List<User> getUser();
     public User getUserByid(User user);
     public void save(User user);
     public void dalete(User user);

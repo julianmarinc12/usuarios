@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Datos de Usuario</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1> Dato user </h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardar}" method="post" th:object="${user}">
+            <label for="name">Name:</label>
+            <input type="text" name="name" th:field="*{name}" />
+        </form>
+    </body>
+    </html>

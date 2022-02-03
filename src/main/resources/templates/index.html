@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <a th:href="@{/agregar}">Crear Usuario</a>
+       <div th:if="${users != null and !users.empty}">
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>date</th>
+                    <th>email</th>
+                    <th>lastname</th>
+                    <th>name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.date}">muestra fecha</td>
+                    <td th:text="${user.email}">muestra email</td>
+                    <td th:text="${user.lastname}">muestra apellido</td>
+                    <td th:text="${user.name}">muestra nombre</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${users == null or users.empty}">
+        La lista de personas está vacía hp
+        </div>
+    </body>
+</html>
