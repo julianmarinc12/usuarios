@@ -1,15 +1,17 @@
 package com.usuarios.web.controllers;
 
-import com.usuarios.dao.DaoUsers;
+
 import com.usuarios.domain.User;
 import com.usuarios.services.UserServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import javax.validation.Valid;
+
 
 @Controller
 @Slf4j
@@ -33,7 +35,10 @@ public class UserControllers {
     }
 
     @PostMapping("/guardar")
-    public String guardar(User user){
+    public String guardar(@Valid User user, Errors errors){
+        if(errors.hasErrors()){
+            return "modificar";
+        }
         userServices.save(user);
         return "redirect:/" ;
     }

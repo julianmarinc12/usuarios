@@ -1,0 +1,23 @@
+<!DOCTYPE HTML >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+
+    </head>
+    <body>
+        <header th:fragment="header">
+            <h1 th:text="#{plantilla.titulo}">titulo</h1>
+        </header>
+        <footer>
+            <p>
+                [[#{plantilla.pie-pagina}]] <a href="http://www.globalmentoring.com.mx" target="_blank">Globalmentori.com.mex</a>
+                <form method="post" th:action="@{/logout}"><a href="#" onclick="this.parentNode.submit();">logout</a>
+                </form>
+
+            </p>
+        </footer>
+
+    </body>
+</html>

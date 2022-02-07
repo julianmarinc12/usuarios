@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      >
     <head>
         <title>Datos de Usuario</title>
         <meta charset="UTF-8"/>
     </head>
     <body>
+        <header th:replace="layout/plantilla :: header" ></header>
         <h1> Dato user </h1>
         <a th:href="@{/}">Regresar</a>
         <br/>
@@ -14,17 +16,22 @@
             <br/>
             <label for="name">Name:</label>
             <input type="text" name="name" th:field="*{name}" />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error del name</span>
             <br/>
             <label for="lastname"> last Name:</label>
             <input type="text" name="lastname" th:field="*{lastname}" />
+            <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Error del lastname</span>
             <br/>
             <label for="email">email:</label>
             <input type="email" name="email" th:field="*{email}" />
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error del email</span>
             <br/>
             <label for="date">date:</label>
             <input type="text" name="date" th:field="*{date}" />
+            <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Error del date</span>
             <br/>
             <input type="submit" name="guardar" value="Guardar"/>
         </form>
+        <<footer th:replace="layout/plantilla :: footer" ></footer>
     </body>
     </html>

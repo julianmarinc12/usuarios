@@ -2,7 +2,9 @@ package com.usuarios.domain;
 
 import lombok.Data;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+
 
 @Data
 @Entity
@@ -12,9 +14,13 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotEmpty
     private String name;
+    @NotEmpty
     private String lastname;
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String date;
 
 
